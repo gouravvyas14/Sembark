@@ -52,7 +52,7 @@ Ensure you have the following installed on your machine:
 ```bash
 git clone [https://github.com/your-username/sembark-collection.git](https://github.com/your-username/sembark-collection.git)
 cd sembark-collection
-
+```bash
 Here is a professional, production-ready README.md file tailored specifically for your project.
 
 You can copy the code block below and save it as README.md in the root folder of your project.
@@ -69,7 +69,7 @@ Markdown
 
 **Sembark Collection** is a modern, high-performance e-commerce frontend application. It features a "Matte Dark" professional aesthetic, responsive design patterns (Sticky Sidebar/Mobile Drawers), and a persistent shopping cart state.
 
-> **Live Demo:** [Insert Link Here]  
+> **Live Demo:** https://sembark.onrender.com/  
 > **API:** Powered by [FakeStoreAPI](https://fakestoreapi.com/)
 
 ---
