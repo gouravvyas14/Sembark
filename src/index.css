@@ -1,0 +1,276 @@
+/* index.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  /* SUBTLE MATTE DARK THEME */
+  /* Backgrounds: Deep, flat colors instead of shiny gradients */
+  --bg-primary: #0f0f11;
+  /* Main page background */
+  --bg-secondary: #18181b;
+  /* Section variations */
+  --surface: #1e1e24;
+  /* Cards/Containers */
+  --surface-hover: #27272a;
+  /* Hover states */
+
+  /* Borders: Subtle separation */
+  --border: #2e2e33;
+  --border-light: #3f3f46;
+
+  /* Typography: High legibility, not harsh white */
+  --text-primary: #f4f4f5;
+  /* Almost white, softer on eyes */
+  --text-secondary: #a1a1aa;
+  /* Muted grey for descriptions */
+  --text-tertiary: #71717a;
+  /* Subtle details */
+
+  /* Accents: Professional Indigo (Desaturated) */
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  --accent-light: #818cf8;
+
+  /* Status */
+  --success: #10b981;
+  --error: #ef4444;
+
+  /* Shadows: Very diffuse and subtle (no hard drop shadows) */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  /* Clean, modern font */
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- UTILITY CLASSES (Replaces inline styles) --- */
+
+.page-container {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+}
+
+.section-hero {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  padding: 5rem 1.5rem;
+  text-align: center;
+}
+
+.section-content {
+  padding: 3rem 1.5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Inputs & Forms */
+.input-field {
+  width: 100%;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 0.875rem 1.25rem;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input-field:focus {
+  border-color: var(--accent);
+  background-color: var(--surface-hover);
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+}
+
+/* Card Styling */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.product-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-light);
+}
+
+.card-image-container {
+  height: 260px;
+  padding: 2rem;
+  background-color: white;
+  /* Keep white for product visibility, or use var(--surface-hover) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-image {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+/* Filters Sidebar */
+.sidebar-filters {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+
+/* Layout Utilities */
+.layout-split {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .layout-split {
+    flex-direction: row;
+  }
+
+  .sidebar-wrapper {
+    width: 260px;
+    flex-shrink: 0;
+  }
+
+  /* Make the products area scrollable to keep the sidebar visible */
+  .products-scroll {
+    /* Reserve vertical space so it fits nicely under hero/nav */
+    max-height: calc(100vh - 12rem);
+    overflow-y: auto;
+    padding-right: 0.5rem;
+  }
+
+  /* Hide scrollbar while retaining scroll functionality */
+  .products-scroll {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  .products-scroll::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+  }
+
+  /* Ensure the sidebar stays visible while scrolling the products list */
+  .sidebar-filters.sticky {
+    position: sticky;
+    top: 4rem;
+    /* adjust if your header is taller */
+  }
+
+  /* Utility classes in case tailwind utilities weren't applied */
+  .sticky {
+    position: sticky;
+  }
+
+  .top-24 {
+    top: 6rem;
+  }
+}
+
+/* Loading/Empty States */
+.state-empty {
+  text-align: center;
+  padding: 4rem 0;
+  color: var(--text-secondary);
+}
+
+/* Toast notification */
+.toast-root {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 60;
+  pointer-events: none;
+}
+
+.toast-card {
+  pointer-events: auto;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  min-width: 220px;
+  max-width: 360px;
+  display: flex;
+  align-items: center;
+  animation: toast-in 220ms ease-out;
+}
+
+.toast-content {
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+
+/* success variant */
+.toast-success {
+  border-left: 4px solid var(--success);
+}
+
+.toast-icon {
+  margin-right: 0.75rem;
+  color: var(--success);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes toast-in {
+  from {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
