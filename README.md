@@ -1,5 +1,3 @@
-Markdown
-
 # Sembark Collection 🛍️
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
@@ -54,18 +52,17 @@ Ensure you have the following installed on your machine:
 ```bash
 git clone [https://github.com/your-username/sembark-collection.git](https://github.com/your-username/sembark-collection.git)
 cd sembark-collection
+```
 2. Install Dependencies
 Install the required node modules defined in package.json.
-
-Bash
-
+```bash
 npm install
+```
 3. Run the Development Server
 Start the Vite development server.
-
-Bash
-
+```bash
 npm run dev
+```
 The application will typically start at http://localhost:5173. Open this URL in your browser.
 
 📂 Project Structure
@@ -81,13 +78,11 @@ src/
 └── main.tsx          # Entry point
 📦 Building for Production
 To create an optimized production build:
-
-Bash
-
+```bash
 npm run build
+```
 The output will be generated in the dist/ folder. You can test the production build locally using:
-
-Bash
-
+```bash
 npm run preview
+```
 Developed with ❤️ by Gourav Vyas
